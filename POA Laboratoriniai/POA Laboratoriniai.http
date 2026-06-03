@@ -1,0 +1,6 @@
+@POA_Laboratoriniai_HostAddress = http://localhost:5185
+
+GET {{POA_Laboratoriniai_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
