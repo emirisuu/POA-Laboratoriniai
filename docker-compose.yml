@@ -11,6 +11,20 @@ services:
       - "5433:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+    
+  api:
+    image: poa-api
+    container_name: poa-api
+    build:
+      context: ./POALaboratoriniai
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      ConnectionStrings__DefaultConnection: "Host=postgres;Port=5432;Database=poa;Username=poa;Password=poatest123"
+      ASPNETCORE_URLS: "http://+:8080"
+    depends_on:
+      - postgres
 
 volumes:
   pgdata:
